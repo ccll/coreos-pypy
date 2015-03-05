@@ -1,12 +1,10 @@
-FROM sergeyzh/centos6-epel
-
-MAINTAINER Sergey Zhukov, sergey@jetbrains.com
+FROM busybox
 
 RUN if [ ! -d /home/core ] ; then mkdir -p /home/core ; fi
 
-ENV PYPY pypy-2.3.1-linux64
+ENV PYPY pypy-2.5.0-linux64
 
-RUN cd /home/core ; wget https://bitbucket.org/pypy/pypy/downloads/${PYPY}.tar.bz2 ; tar -xjf ${PYPY}.tar.bz2 ; mv ${PYPY} pypy
+ADD https://bitbucket.org/pypy/pypy/downloads/${PYPY}.tar.bz2 /home/core/pypy
 
 VOLUME /home/host-core
 

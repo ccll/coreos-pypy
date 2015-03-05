@@ -1,4 +1,4 @@
-FROM busybox
+FROM gliderlabs/alpine
 
 RUN if [ ! -d /home/core ] ; then mkdir -p /home/core ; fi
 

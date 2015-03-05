@@ -4,7 +4,9 @@ RUN if [ ! -d /home/core ] ; then mkdir -p /home/core ; fi
 
 ENV PYPY pypy-2.5.0-linux64
 
-RUN cd /home/core ; wget https://bitbucket.org/pypy/pypy/downloads/${PYPY}.tar.bz2 ; tar -xjf ${PYPY}.tar.bz2 ; mv ${PYPY} pypy
+ADD https://bitbucket.org/pypy/pypy/downloads/${PYPY}.tar.bz2 /home/core/${PYPY}.tar.bz2
+
+RUN cd /home/core ; tar -xjf ${PYPY}.tar.bz2 ; mv ${PYPY} pypy
 
 VOLUME /home/host-core
 

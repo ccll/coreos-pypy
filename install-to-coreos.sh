@@ -3,7 +3,11 @@
 PYPY=$1
 
 cd /home/core
+
+echo Extracting ${PYPY}...
 tar -xjf ${PYPY}.tar.bz2
+
+echo Copying to host...
 mv ${PYPY} /home/host-core/pypy
 
 cd /home/host-core/pypy/bin
